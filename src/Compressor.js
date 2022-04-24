@@ -21,7 +21,7 @@ module.exports = class {
       .trim();
 
     // Split the code into small chunks
-    const splitted = code.split(/["'`()[\];:+\-*/%!&| ]/g);
+    const splitted = code.split(/["'`()[\],;:+\-*/%!&| ]/g);
 
     // Check if each chunk is worth replacing with a token
     // (if it occurs multiple times and is long enough)
@@ -66,6 +66,7 @@ module.exports = class {
       .join('');
 
     // Add decompressing code
+    // TODO: for..of
     return `_="${code}";for(X in $="${tokens}")with(_.split($[X]))_=join(pop());eval(_)`;
   }
 };

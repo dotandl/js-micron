@@ -1,4 +1,4 @@
-const Compressor = require('../src/Compressor');
+const Compressor = require('./Compressor');
 
 const js = `console.log('Hello world!');
 console.log('Good morning world!');
