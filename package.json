@@ -1,0 +1,28 @@
+{
+  "name": "js-micron",
+  "version": "0.1.0",
+  "description": "JS minifying tool drastically reducing the size of scripts",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "format": "prettier -w ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotandl/js-micron.git"
+  },
+  "author": "dotandl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dotandl/js-micron/issues"
+  },
+  "homepage": "https://github.com/dotandl/js-micron#readme",
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "prettier": "^2.6.2"
+  }
+}
