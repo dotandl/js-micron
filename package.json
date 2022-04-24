@@ -2,7 +2,7 @@
   "name": "js-micron",
   "version": "0.1.0",
   "description": "JS minifying tool drastically reducing the size of scripts",
-  "main": "src/index.js",
+  "bin": "src/index.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
@@ -24,5 +24,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.5.1",
     "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "node-getopt": "^0.3.2"
   }
 }

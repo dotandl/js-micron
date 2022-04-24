@@ -1,1 +1,1 @@
-exports.add = (x, y) => x + y;
+#!/usr/bin/env node
