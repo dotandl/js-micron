@@ -13,9 +13,9 @@ module.exports = class {
   analyze(code) {
     const chunks = [];
 
-    // Remove unnecessary whitespace
-    // TODO: remove comments
+    // Remove unnecessary whitespace and comments
     code = code
+      .replace(/(\/\/.*$|\/\*.*\*\/)/gm, '')
       .replace(/([\r\n]|\s)/g, ' ')
       .replace(/ +/g, ' ')
       .trim();
@@ -40,8 +40,10 @@ module.exports = class {
 
   compress(code) {
     // Prepare code for compression (remove whitespace, trim, get rid of trailing comma)
-    // TODO: remove comments
-    code = code.replace(/[\r\n]/g, '').trim();
+    code = code
+      .replace(/(\/\/.*$|\/\*.*\*\/)/gm, '')
+      .replace(/[\r\n]/g, '')
+      .trim();
     if (code.slice(-1) === ';') code = code.slice(0, -1);
 
     let tokens = new TokenManager(code);
@@ -66,7 +68,6 @@ module.exports = class {
       .join('');
 
     // Add decompressing code
-    // TODO: for..of
-    return `_="${code}";for(X in $="${tokens}")with(_.split($[X]))_=join(pop());eval(_)`;
+    return `_="${code}";for($ of "${tokens}")with(_.split($))_=join(pop());eval(_)`;
   }
 };
