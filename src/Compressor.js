@@ -4,6 +4,8 @@ Array.prototype.occurrences = function (item) {
   return this.filter(i => i === item).length;
 };
 
+// XXX: Comments support can be removed.
+
 module.exports = class {
   constructor(opts = {}) {
     this.__minOccurrences = opts.minOccurrences || 2;
