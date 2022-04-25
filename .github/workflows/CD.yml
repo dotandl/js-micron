@@ -13,9 +13,6 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
-      - name: Run Tests
-        uses: dotandl/js-micron/.github/workflows/CI.yml@main
-
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v1
         with:
