@@ -1,4 +1,5 @@
 name: Continuous Deployment
+
 on:
   release:
     types: [published]
@@ -12,13 +13,10 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.4.2'
-          registry-url: https://registry.npmjs.org/
+      - name: Run Tests
+        uses: ./.github/workflows/CI
 
       - name: Publish to NPM
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
