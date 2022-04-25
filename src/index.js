@@ -5,6 +5,9 @@ const fs = require('fs');
 const GetOpt = require('node-getopt');
 const compress = require('./compress');
 
+Number.toStringWithPlus = num =>
+  num < 0 ? num.toString() : num > 0 ? `+${num}` : '0';
+
 function main() {
   console.log('== js-micron ==');
   console.log('Input file:', inputFile);
@@ -21,8 +24,18 @@ function main() {
   }
   fs.writeFileSync(outputFile, compressedJS, { encoding: 'utf8' });
 
-  // TODO: compression summary
-  console.log('Done.');
+  const inputSize = fs.statSync(inputFile).size;
+  const outputSize = fs.statSync(outputFile).size;
+
+  const diff = outputSize - inputSize;
+  const percent = (diff / inputSize) * 100;
+
+  console.log(
+    `Done: ${inputSize}B -> ${outputSize}B ` +
+      `(${Number.toStringWithPlus(diff)}B ${Number.toStringWithPlus(
+        percent.toFixed(2)
+      )}%)`
+  );
 }
 
 const opt = new GetOpt([

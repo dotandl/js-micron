@@ -1,7 +1,7 @@
 const UglifyJS = require('uglify-js');
 const Compressor = require('./Compressor');
 
-module.exports = function (code) {
+module.exports = code => {
   if (process.env.VERBOSE) {
     console.log('Optimizing code using UglifyJS & preparing for analyze...');
   }
@@ -10,7 +10,7 @@ module.exports = function (code) {
     mangle: true,
     compress: true,
     toplevel: true,
-    output: { beautify: true },
+    output: { beautify: true, quote_style: 1 },
   }).code;
 
   if (process.env.VERBOSE) {
@@ -27,6 +27,7 @@ module.exports = function (code) {
     mangle: true,
     compress: true,
     toplevel: true,
+    output: { quote_style: 1 },
   }).code;
 
   if (process.env.VERBOSE) {
