@@ -3,6 +3,7 @@
 [![NPM](https://nodei.co/npm/js-micron.png?compact=true)](https://npmjs.com/package/js-micron)
 
 [![Continuous Integration](https://github.com/dotandl/js-micron/actions/workflows/CI.yml/badge.svg)](https://github.com/dotandl/js-micron/actions/workflows/CI.yml)
+[![Continuous Deployment](https://github.com/dotandl/js-micron/actions/workflows/CD.yml/badge.svg)](https://github.com/dotandl/js-micron/actions/workflows/CD.yml)
 
 JS minifying tool drastically reducing the size of scripts.
 Inspired by [JS Crush](http://www.iteral.com/jscrush/).
